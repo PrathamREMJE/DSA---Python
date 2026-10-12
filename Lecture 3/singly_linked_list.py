@@ -1,0 +1,56 @@
+# singly linear linked list
+class node:  
+    def __init__(self,value):
+        self.data=value
+        self.next=None
+
+class sll:
+    def __init__(self):
+        self.head=None
+
+    def append(self,new_node):
+        if self.head==None:
+            self.head=new_node
+        else:
+            temp=self.head
+            while(temp.next):
+                temp=temp.next
+            temp.next=new_node
+
+    def print(self):
+            temp=self.head
+            while(temp):
+                print(temp.data)
+                temp=temp.next
+
+    def delete(self,position):
+        if self.head==None:
+            print("List is empty")
+            return
+        temp=self.head
+        if position==1:
+            self.head=temp.next
+            temp=None
+            return
+        for i in range(position-2):
+            temp=temp.next
+            if temp is None:
+                break
+        if temp is None or temp.next is None:
+            print("Position does not exist")
+            return
+        next=temp.next.next
+        temp.next=None
+        temp.next=next
+
+list1=sll()
+n1=node(10)
+n2=node(20)
+
+list1.append(n1)
+list1.append(n2)
+list1.append(node(30))
+list1.append(node(40))
+list1.print()
+list1.delete(3)
+list1.print()
