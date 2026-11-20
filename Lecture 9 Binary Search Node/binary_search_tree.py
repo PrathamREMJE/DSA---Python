@@ -51,6 +51,14 @@ class BST:
             self.postorder(rt.right)
             print(rt.data, end=" ")
 
+    def min_value(self, temp):
+        if temp is None:
+            return None
+        else:
+            while temp.left is not None:
+                temp = temp.left
+            return temp.data
+
 b1 = BST()
 b1.insert(Node(200))
 b1.insert(Node(20))
@@ -60,11 +68,10 @@ b1.insert(Node(65))
 b1.insert(Node(300))
 print("Inorder:")
 b1.inorder(b1.root)
-print("--------------------")
-print("Preorder:")
+print("\nPreorder:")
 b1.preorder(b1.root)
-print("--------------------")
-print("Postorder:")
+print("\nPostorder:")
 b1.postorder(b1.root)
+print("\nMinimum Value from the Tree:",b1.min_value(b1.root))
 
         
