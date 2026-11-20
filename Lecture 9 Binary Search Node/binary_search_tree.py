@@ -59,6 +59,14 @@ class BST:
                 temp = temp.left
             return temp.data
 
+    def max_value(self, temp):
+            if temp is None:
+                return None
+            else:
+                while temp.right is not None:
+                    temp = temp.right
+                return temp.data
+
 b1 = BST()
 b1.insert(Node(200))
 b1.insert(Node(20))
@@ -73,5 +81,6 @@ b1.preorder(b1.root)
 print("\nPostorder:")
 b1.postorder(b1.root)
 print("\nMinimum Value from the Tree:",b1.min_value(b1.root))
+print("\nMaximum Value from the Tree:",b1.max_value(b1.root))
 
         
