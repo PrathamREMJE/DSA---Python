@@ -9,7 +9,7 @@ class BST:
         self.root = None
 
     def insert(self, new_node):
-        if self.root is None:  #BST is empty
+        if self.root is None:
             self.root = new_node
         else:
             temp = self.root
